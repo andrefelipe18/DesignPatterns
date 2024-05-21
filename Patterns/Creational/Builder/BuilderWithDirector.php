@@ -88,10 +88,41 @@ class Character
 	}
 }
 
+class CharacterDirector
+{
+	private $builder;
+
+	public function __construct(CharacterBuilderInterface $builder)
+	{
+		$this->builder = $builder;
+	}
+
+	public function buildWizardElf()
+	{
+		return $this->builder->setRace("Elf")
+			->setClass("Wizard")
+			->setWeapon("Staff")
+			->setArmor("Robe")
+			->build();
+	}
+
+	public function buildWarriorHuman()
+	{
+		return $this->builder->setRace("Human")
+			->setClass("Warrior")
+			->setWeapon("Sword")
+			->setArmor("Plate")
+			->build();
+	}
+
+	// Outros métodos para construir diferentes tipos de personagens
+}
+
 // Exemplos de uso
 
 $builder = new CharacterBuilder();
 
+//Usando o CharacterBuilder diretamente
 $character = $builder
 	->setRace('Human')
 	->setClass('Warrior')
@@ -100,3 +131,17 @@ $character = $builder
 	->build();
 
 $character->describe();
+
+//Usando o CharacterDirector
+$director = new CharacterDirector($builder);
+
+$wizardElf = $director->buildWizardElf();
+$wizardElf->describe();
+
+$warriorHuman = $director->buildWarriorHuman();
+$warriorHuman->describe();
+
+// Saída:
+// $character = Human Warrior Sword Plate
+// $wizardElf = Elf Wizard Staff Robe
+// $warriorHuman = Human Warrior Sword Plate
