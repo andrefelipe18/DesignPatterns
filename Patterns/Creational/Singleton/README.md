@@ -14,7 +14,7 @@ Use o padrão Singleton quando:
 2. Crie um método estático que será responsável por criar uma instância da classe e garantir que apenas uma instância seja criada.
 3. Crie uma variável estática privada que armazenará a instância da classe.
 
-Exemplos: 
+Exemplos:
 	- [Singleton.php](Singleton.php)
     - [Example1.php](Example1.php)
     - [SingletonTest.php](../../../tests/Patterns/Creational/Singleton/SingletonTest.php)

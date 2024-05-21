@@ -3,21 +3,23 @@
 declare(strict_types=1);
 
 class Singleton
-{	
+{
 	/**
-	 * This variable will store the instance of the Singleton class
+	 * Essa variável armazenará a instância da classe Singleton
 	 * 
 	 * @var Singleton|null
 	 */
 	private static ?Singleton $instance = null;
 
 	/**
-	 * The constructor is private to prevent the creation of new instances
+	 * O construtor é privado para evitar que a classe seja instanciada
 	 */
-	private function __construct(){}
+	private function __construct()
+	{
+	}
 
 	/**
-	 * This method will return the instance of the Singleton class
+	 * O método getInstance é responsável por retornar a instância da classe Singleton
 	 * 
 	 * @return Singleton
 	 */
@@ -31,7 +33,7 @@ class Singleton
 	}
 }
 
-// Example of use
+// Exemplos de uso
 $singleton1 = Singleton::getInstance();
 $singleton2 = Singleton::getInstance();
 

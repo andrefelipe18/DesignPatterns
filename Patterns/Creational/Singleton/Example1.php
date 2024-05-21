@@ -6,13 +6,15 @@ class DatabaseConnection
 {
 	private static ?DatabaseConnection $instance = null;
 
-	private function __construct(){}
+	private function __construct()
+	{
+	}
 
-		public static function getInstance(): DatabaseConnection
+	public static function getInstance(): DatabaseConnection
 	{
 		if (self::$instance === null) {
-			//Here you add the code to connect to the database
-			//For example:
+			//Aqui iria a lógica de conexão com o banco de dados
+			//Por exemplo, para SQLite em memória
 			self::$instance = new PDO('sqlite::memory:');
 		}
 
@@ -20,7 +22,7 @@ class DatabaseConnection
 	}
 }
 
-// Example of use
+// Exemplos de uso
 $database1 = DatabaseConnection::getInstance();
 $database2 = DatabaseConnection::getInstance();
 
